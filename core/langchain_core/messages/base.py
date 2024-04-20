@@ -2,14 +2,14 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, Any, Dict, List, Optional, Sequence, Union
 
-from langchain_core.load.serializable import Serializable
-from langchain_core.pydantic_v1 import Extra, Field
-from langchain_core.utils import get_bolded_text
-from langchain_core.utils._merge import merge_dicts
-from langchain_core.utils.interactive_env import is_interactive_env
+from core.langchain_core.load.serializable import Serializable
+from core.langchain_core.pydantic_v1 import Extra, Field
+from core.langchain_core.utils import get_bolded_text
+from core.langchain_core.utils._merge import merge_dicts
+from core.langchain_core import is_interactive_env
 
 if TYPE_CHECKING:
-    from langchain_core.prompts.chat import ChatPromptTemplate
+    from core.langchain_core import ChatPromptTemplate
 
 
 class BaseMessage(Serializable):
@@ -57,7 +57,7 @@ class BaseMessage(Serializable):
         return ["langchain", "schema", "messages"]
 
     def __add__(self, other: Any) -> ChatPromptTemplate:
-        from langchain_core.prompts.chat import ChatPromptTemplate
+        from core.langchain_core import ChatPromptTemplate
 
         prompt = ChatPromptTemplate(messages=[self])  # type: ignore[call-arg]
         return prompt + other
