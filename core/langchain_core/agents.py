@@ -34,12 +34,11 @@ import json
 from typing import Any, List, Literal, Sequence, Union
 
 from core.langchain_core.load.serializable import Serializable
-from core.langchain_core.messages import (
-    AIMessage,
-    BaseMessage,
-    FunctionMessage,
-    HumanMessage,
-)
+from core.langchain_core.messages.ai import AIMessage
+from core.langchain_core.messages.base import BaseMessage
+from core.langchain_core.messages.function import FunctionMessage
+from core.langchain_core.messages.human import HumanMessage
+
 
 class AgentAction(Serializable):
     """A full description of an action for an ActionAgent to execute."""
